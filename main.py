@@ -1,8 +1,34 @@
-nom = input( "Entrez votre nom svp: ")
-prenom = input( "Entrez votre prenom svp: ")
-age = input( "Entrez votre age svp: ")
-nationnalite = input( "Entrez votre nationnalité svp: ")
-sexe = input( "Entrez votre sexe svp: ")
+from random import randint
 
-if __name__ == '__main__':
-    print("Bonjour, je m'appelle ",nom," ",prenom,". Je suis un ",sexe," ",nationnalite,".")
+
+Stack = {}
+
+def randomChoice():
+        return randint(2, 15)
+
+def holdInfoInStack(name: str,age: int,country: str , option: int):
+ Stack[name.lower()] = [name,age,country,option]
+
+def divider(n=20):
+ print('-'*n)
+
+def displayinfo(name: str,age: int,country: str)->tuple:
+ holdInfoInStack (name,age,country,1)
+ return name,age,country
+
+def displayinfoByInput(name: str,age: int,country: str)->tuple:
+ holdInfoInStack (name,age,country,2)
+ return displayinfo(name,age,country)
+
+
+if name == '__main__':
+ name = "ESMT"
+ age =30
+ country = "senegal"
+ divider()
+ print(displayinfo(name,age,country))
+ name2 = input(" Enter a name :")
+ age2 =int(input(" Enter a age "))
+ country2 = input("  Enter a country ")
+ divider()
+ print(displayinfoByInput(name2,age2,country2))
